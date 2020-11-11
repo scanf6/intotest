@@ -1,12 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Counter from './components/Counter';
 
-function App() {
-  return (
-    <div className="App">
-      Scratch that!
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div data-test='appComponent'>
+        <Counter />
+      </div>
+    );
+  }
 }
 
 export default App;
