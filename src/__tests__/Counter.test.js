@@ -1,12 +1,21 @@
 import React from 'react';
 import Counter from '../components/Counter';
-import { shallow } from 'enzyme';
+import { shallow, ShallowWrapper } from 'enzyme';
 
+/**
+ * Return a shallow wrapp of the Counter component
+ * @returns {ShallowWrapper} A shallow wrapper of the Counter component
+ */
 function setup() {
   let wrapper = shallow(<Counter />);
   return wrapper;
 }
 
+/**
+ * @param {ShallowWrapper} wrapper
+ * @param {string} attribute
+ * @returns  {HTMLAllCollection} A collection of HTML elements
+ */
 function findByTestAttr(wrapper, attribute) {
   return wrapper.find(`[data-test='${attribute}']`);
 }
@@ -79,4 +88,5 @@ describe('Counter Component', () => {
       expect(errorMessage.length).toBe(0);
     });
   });
+
 });
