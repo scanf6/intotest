@@ -27,6 +27,12 @@ describe('Counter Component', () => {
     expect(button.length).toBe(1);
   });
 
+  it('Should display 0 as starting count', ()=>{
+    const span = findByTestAttr(wrapper, 'count');
+    const text = span.text();
+    expect(text).toBe('0');
+  });
+
   it('Should increment state when button is clicked', () => {
     const button = findByTestAttr(wrapper, 'buttonCounter');
     const counterInstance = wrapper.instance();

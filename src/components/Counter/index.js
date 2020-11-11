@@ -16,7 +16,7 @@ class Counter extends Component {
     return (
       <div data-test='counterComponent'>
         <h2>Counter Component</h2>
-        <p>COUNT: {this.state.count}</p>
+        <p>COUNT: <span data-test="count">{this.state.count}</span></p>
         <button data-test='buttonCounter' onClick={this.increment}>
           Increment
         </button>
