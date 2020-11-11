@@ -54,18 +54,29 @@ describe('Counter Component', () => {
     expect(span.text()).toBe('0');
   });
 
-  it('Should stay to 0 if the counter is already to 0', () => {
-    const decrementButton = findByTestAttr(wrapper, 'decrement-counter');
-    decrementButton.simulate('click');
-    const span = findByTestAttr(wrapper, 'count');
-    expect(span.text()).toBe('0');
-  });
+  describe('Decrement button is clicked', () => {
+    beforeEach(() => {
+      const decrementButton = findByTestAttr(wrapper, 'decrement-counter');
+      decrementButton.simulate('click');
+    });
 
-  it('Should display an error message if decrementing when counter is already 0', () => {
-    const decrementButton = findByTestAttr(wrapper, 'decrement-counter');
-    decrementButton.simulate('click');
-    const errorMessage = findByTestAttr(wrapper, 'error-message');
-    expect(errorMessage.length).toBe(1);
+    it('Should stay to 0 if the counter is already to 0', () => {
+      const span = findByTestAttr(wrapper, 'count');
+      expect(span.text()).toBe('0');
+    });
 
+    it('Should display an error message if decrementing when counter is already 0', () => {
+      const errorMessage = findByTestAttr(wrapper, 'error-message');
+      expect(errorMessage.length).toBe(1);
+    });
+
+    it('Should remove error message if count goes more than 0', ()=> {
+      const incrementButton = findByTestAttr(wrapper, 'button-counter');
+      let errorMessage = findByTestAttr(wrapper, 'error-message');
+      expect(errorMessage.length).toBe(1);
+      incrementButton.simulate('click');
+      errorMessage = findByTestAttr(wrapper, 'error-message');
+      expect(errorMessage.length).toBe(0);
+    });
   });
 });

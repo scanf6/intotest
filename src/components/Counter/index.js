@@ -10,7 +10,7 @@ class Counter extends Component {
   }
 
   increment = () => {
-    this.setState({ count: this.state.count + 1 });
+    this.setState({ error: false, count: this.state.count + 1 });
   };
 
   decrement = () => {
