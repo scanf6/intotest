@@ -16,7 +16,7 @@ describe('Congrats Component', ()=> {
     it('Should render without errors', ()=> {
         const wrapper = setup({ success: true });
         const component = findByTestAttr(wrapper, 'congrats-component');
-        expect(component.length).toBe(1);
+        expect(component.length).toBe('a');
     });
 
     it('Should render success message when passing success prop with value true', ()=> {
