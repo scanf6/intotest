@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Congrats from "./components/Congrats";
+import GuessedWords from "./components/GuessedWords";
 
 class App extends Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class App extends Component {
   render() {
     return (
       <div data-test='jotto-app'>
-        <Congrats success={true}/>
+        <Congrats success={false}/>
+        <GuessedWords guessedWords={[]}/>
       </div>
     );
   }
