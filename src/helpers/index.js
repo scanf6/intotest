@@ -6,8 +6,8 @@
  */
 export const getLetterMatchCount = (guessedWord, finalWord) => {
     let wordsCount = 0;
-    const guessedWordArray = guessedWord.split('');
-    const finalWordArray = finalWord.split('');
+    const guessedWordArray = Array.from(new Set(guessedWord.split('')));
+    const finalWordArray = Array.from(new Set(finalWord.split('')));
 
     guessedWordArray.forEach(letter => {
         if(finalWordArray.includes(letter)) wordsCount += 1;
