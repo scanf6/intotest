@@ -1,9 +1,12 @@
+import { createStore, applyMiddleware } from 'redux';
+import rootReducer from './redux/reducers';
+import thunk from 'redux-thunk';
 import { ShallowWrapper } from "enzyme";
 import checkPropTypes from "check-prop-types";
 
 /**
  * @param {ShallowWrapper} wrapper - A wrapper of the component
- * @param {*} value  - The value of the data attribute to search for
+ * @param {string} value  - The value of the data attribute to search for
  */
 export const findByTestAttr = function(wrapper, value){
     return wrapper.find(`[data-test='${value}']`);
@@ -17,4 +20,11 @@ export const findByTestAttr = function(wrapper, value){
 export const checkProps = function(component, expectedProps) {
     const propErrors = checkPropTypes(component.propTypes, expectedProps, 'props', component.name);
     expect(propErrors).toBeUndefined();
+}
+
+export const testStore = (initialState) => {
+    const middlewares = [thunk];
+    const createStoreWithMiddlewares = applyMiddleware(...middlewares)(createStore);
+    const store = createStoreWithMiddlewares(rootReducer, initialState);
+    return store;
 }
