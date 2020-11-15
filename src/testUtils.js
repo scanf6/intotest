@@ -22,6 +22,10 @@ export const checkProps = function(component, expectedProps) {
     expect(propErrors).toBeUndefined();
 }
 
+/**
+ * testStore - A function that create a test store with all our app middleares and the root reducer
+ * @param {object} initialState - The initial state of the store
+ */
 export const testStore = (initialState) => {
     const middlewares = [thunk];
     const createStoreWithMiddlewares = applyMiddleware(...middlewares)(createStore);
