@@ -1,7 +1,7 @@
 import React from "react";
-import Congrats from "../components/Congrats";
+import Congrats from ".";
 import { shallow } from "enzyme";
-import { findByTestAttr, checkProps } from "../testUtils";
+import { findByTestAttr, checkProps } from "../../testUtils";
 
 /**
  * Function to return a component wrapper
