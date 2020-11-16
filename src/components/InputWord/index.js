@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 class InputWord extends Component {
@@ -9,11 +8,16 @@ class InputWord extends Component {
 
     render() {
         const { success } = this.props;
-        if(success) return (<input data-test='input-component' type="text" placeholder="write your guessed word here..." />)
+        if(!success) return (
+        <>
+          <input data-test='input-component' type="text" placeholder="write your guessed word here..." />
+          <button data-test="input-button">Submit</button>
+        </>)
     }
 }
 
-InputWord.propTypes = {
-    success: PropTypes.bool.isRequired
-}
-export default InputWord
+const mapStateToProps = state =>({
+    success: state.success
+});
+
+export default connect(mapStateToProps)(InputWord)

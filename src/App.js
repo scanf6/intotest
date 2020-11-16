@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <div data-test='jotto-app'>
         <Congrats success={success}/>
-        <InputWord success={success} />
+        <InputWord/>
         <GuessedWords guessedWords={guessedWords}/>
       </div>
     );
