@@ -4,14 +4,15 @@
  * @param {object} action - The action object
  */
 const successReducer = (state = false, action) => {
-    switch(action.type) {
+    /* switch(action.type) {
         case 'SUCCESS':
             return true;
         case 'FAIL':
             return false;
         default:
             return state;
-    }
+    } */
+    return state;
 }
 
 export default successReducer;
