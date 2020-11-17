@@ -1,5 +1,5 @@
-import successReducer from './successReducer';
-import successActions from '../actions';
+import successReducer from '.';
+import successActions from '../../actions';
 
 describe('Success Reducer', ()=>{
     it('Should return false by default if neither SUCCESS nor FAIL comes', ()=>{

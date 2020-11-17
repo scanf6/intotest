@@ -1,4 +1,4 @@
-import { SUCCESS, FAIL } from '../types';
+import { SUCCESS, FAIL } from '../../types';
 
 /**
  * successReducer - Reducer
