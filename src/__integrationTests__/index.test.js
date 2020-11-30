@@ -1,4 +1,5 @@
 import { testStore } from "../testUtils";
+import moxios from "moxios";
 import actions from "../redux/actions";
 
 describe('Integration Test: Dispatching a guess word action', ()=>{
@@ -39,4 +40,33 @@ describe('Integration Test: Dispatching a guess word action', ()=>{
             expect(newState).toEqual(expectedState);
         })
     });
+});
+
+describe('Dispatching a SET SECRET WORD action', ()=>{
+    beforeEach(()=>{
+        moxios.install();
+    });
+
+    afterEach(()=>{
+        moxios.uninstall();
+    })
+
+    it('Should set the secret word', ()=>{
+        const secretWord = 'strong';
+        const store = testStore();
+
+        moxios.wait(()=>{
+            const request = moxios.requests.mostRecent();
+            request.respondWith({
+                status: 200,
+                response: secretWord
+            })
+        });
+
+        return store.dispatch(actions.setSecretWord()).then(()=>{
+            const newState = store.getState();
+            expect(newState.secretWord).toBe(secretWord)
+        })
+    });
+
 });

@@ -25,6 +25,7 @@ export const checkProps = function(component, expectedProps) {
 /**
  * testStore - A function that create a test store with all our app middleares and the root reducer
  * @param {object} initialState - The initial state of the store
+ * @returns {object} A test store with the middlewares applied
  */
 export const testStore = (initialState) => {
     const middlewares = [thunk];
