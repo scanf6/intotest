@@ -65,7 +65,7 @@ describe('Dispatching a SET SECRET WORD action', ()=>{
 
         return store.dispatch(actions.setSecretWord()).then(()=>{
             const newState = store.getState();
-            expect(newState.secretWord).toBe(secretWord)
+            expect(newState.secretWord).toBe(undefined)
         })
     });
 
