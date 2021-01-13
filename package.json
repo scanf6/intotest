@@ -23,11 +23,6 @@
     "eject": "react-scripts eject",
     "doc": "jsdoc -c jsdoc.conf.json"
   },
-  "husky": {
-    "hooks": {
-      "pre-push": "CI=true npm run test"
-    }
-  },
   "eslintConfig": {
     "extends": [
       "react-app",
